@@ -1,0 +1,287 @@
+{
+    "cards": [
+        {
+            "cardId": "RAMADAN_CARD_V1",
+            "displayName": "Ramadan Card",
+            "template": [
+                {
+                    "locale": "ar",
+                    "assetKey": "Ramadan-Self-Serve-Card-Merge-Ar_4_1345.indd",
+                    "fonts": [
+                        "AdobeFnt25_6322.lst",
+                        "AlBayan_9693.ttc"
+                    ]
+                },
+                {
+                    "locale": "en",
+                    "assetKey": "Ramadan-Self-Serve-en_8254.indd",
+                    "fonts": [
+                        "SaudiSans-Bold_1509.ttf",
+                        "SaudiSans-Regular_8929.ttf"
+                    ]
+                }
+            ],
+            "version": 1,
+            "enabled": true,
+            "metadata": {
+                "occasion": "RAMADAN",
+                "aspectRatio": "4:5",
+                "output": {
+                    "format": "png",
+                    "width": 1080,
+                    "height": 1350
+                },
+                "notes": "Single template; persona picks center ornament; theme picks background."
+            },
+            "personas": {
+                "indesignTag": "Icon",
+                "options": [
+                    {
+                        "name": "IFTAR_TABLE_GATHERER",
+                        "ornaments": [
+                            {
+                                "id": "Ramadan Icons-02",
+                                "assetKey": "Ramadan_Icons-02_9338.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-04",
+                                "assetKey": "Ramadan_Icons-04_3178.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-05",
+                                "assetKey": "Ramadan_Icons-05_2913.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-06",
+                                "assetKey": "Ramadan_Icons-06_2712.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-14",
+                                "assetKey": "Ramadan_Icons-14_7712.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-17",
+                                "assetKey": "Ramadan_Icons-17_0750.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-18",
+                                "assetKey": "Ramadan_Icons-18_3792.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-19",
+                                "assetKey": "Ramadan_Icons-19_4100.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-02",
+                                "assetKey": "Ramadan_Icons-2-02_7261.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-04",
+                                "assetKey": "Ramadan_Icons-2-04_2485.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-05",
+                                "assetKey": "Ramadan_Icons-2-05_7715.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-14",
+                                "assetKey": "Ramadan_Icons-2-14_0939.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-16",
+                                "assetKey": "Ramadan_Icons-2-16_8964.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-17",
+                                "assetKey": "Ramadan_Icons-2-17_1797.png"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "MAJLIS_STORYTELLER",
+                        "ornaments": [
+                            {
+                                "id": "Ramadan Icons-11",
+                                "assetKey": "Ramadan_Icons-11_5247.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-08",
+                                "assetKey": "Ramadan_Icons-2-08_6449.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-11",
+                                "assetKey": "Ramadan_Icons-2-11_2924.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-15",
+                                "assetKey": "Ramadan_Icons-2-15_8841.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-18",
+                                "assetKey": "Ramadan_Icons-2-18_9374.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-19",
+                                "assetKey": "Ramadan_Icons-2-19_3470.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-20",
+                                "assetKey": "Ramadan_Icons-2-20_7724.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-21",
+                                "assetKey": "Ramadan_Icons-2-21_2805.png"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "PRAYER_TIME_PEACEKEPER",
+                        "ornaments": [
+                            {
+                                "id": "Ramadan Icons-01",
+                                "assetKey": "Ramadan_Icons-01_0751.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-03",
+                                "assetKey": "Ramadan_Icons-03_2503.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-05",
+                                "assetKey": "Ramadan_Icons-05_9580.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-10",
+                                "assetKey": "Ramadan_Icons-10_3423.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-01",
+                                "assetKey": "Ramadan_Icons-2-01_7950.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-03",
+                                "assetKey": "Ramadan_Icons-2-03_6897.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-05",
+                                "assetKey": "Ramadan_Icons-2-05_9350.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-07",
+                                "assetKey": "Ramadan_Icons-2-07_1416.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-10",
+                                "assetKey": "Ramadan_Icons-2-10_7903.png"
+                            },
+                            {
+                                "id": "Ramadan Icons-2-12",
+                                "assetKey": "Ramadan_Icons-2-12_2210.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "themes": {
+                "indesignTag": "Background",
+                "options": [
+                    {
+                        "name": "Dunes",
+                        "backgrounds": [
+                            {
+                                "id": "BG-Reds-01",
+                                "assetKey": "BG-Reds-01_4336.png"
+                            },
+                            {
+                                "id": "BG-Reds-02",
+                                "assetKey": "BG-Reds-02_7703.png"
+                            },
+                            {
+                                "id": "BG-Reds-03",
+                                "assetKey": "BG-Reds-03_7509.png"
+                            },
+                            {
+                                "id": "BG-Reds-04",
+                                "assetKey": "BG-Reds-04_4118.png"
+                            },
+                            {
+                                "id": "BG-Reds-05",
+                                "assetKey": "BG-Reds-05_5820.png"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Oasis",
+                        "backgrounds": [
+                            {
+                                "id": "BG-Greens-01",
+                                "assetKey": "BG-Greens-01_4155.png"
+                            },
+                            {
+                                "id": "BG-Greens-02",
+                                "assetKey": "BG-Greens-02_0746.png"
+                            },
+                            {
+                                "id": "BG-Greens-03",
+                                "assetKey": "BG-Greens-03_4334.png"
+                            },
+                            {
+                                "id": "BG-Greens-04",
+                                "assetKey": "BG-Greens-04_4722.png"
+                            },
+                            {
+                                "id": "BG-Greens-05",
+                                "assetKey": "BG-Greens-05_6538.png"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "RedSea",
+                        "backgrounds": [
+                            {
+                                "id": "BG-Blues-01",
+                                "assetKey": "BG-Blues-01_1289.png"
+                            },
+                            {
+                                "id": "BG-Blues-02",
+                                "assetKey": "BG-Blues-02_8466.png"
+                            },
+                            {
+                                "id": "BG-Blues-03",
+                                "assetKey": "BG-Blues-03_7963.png"
+                            },
+                            {
+                                "id": "BG-Blues-04",
+                                "assetKey": "BG-Blues-04_6128.png"
+                            },
+                            {
+                                "id": "BG-Blues-05",
+                                "assetKey": "BG-Blues-05_5540.png"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Taif",
+                        "backgrounds": [
+                            {
+                                "id": "BG-Purple-Pink-02",
+                                "assetKey": "BG-Purple-Pink-02_4877.png"
+                            },
+                            {
+                                "id": "BG-Purple-Pink-03",
+                                "assetKey": "BG-Purple-Pink-03_5677.png"
+                            },
+                            {
+                                "id": "BG-Purple-Pink-04",
+                                "assetKey": "BG-Purple-Pink-04_5866.png"
+                            },
+                            {
+                                "id": "BG-Purple-Pink-05",
+                                "assetKey": "BG-Purple-Pink-05_2795.png"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
