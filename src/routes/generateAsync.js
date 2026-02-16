@@ -1,12 +1,17 @@
-import crypto from "crypto";
 import { httpError, getStatusCode } from "../lib/errors.js";
-import { createQueuedJob } from "../lib/jobStore.js";
+import { createQueuedJob, getJob } from "../lib/jobStore.js";
+
+function isJobExistsError(err) {
+  const msg = String(err?.message || "");
+  return msg.toLowerCase().includes("already exists");
+}
 
 export function createGenerateAsyncRoute({ env, redis, queue, log }) {
   return async function generateAsync(req, res) {
     try {
       const {
         sessionId,
+        requestId,
         cardId,
         persona,
         theme,
@@ -15,12 +20,21 @@ export function createGenerateAsyncRoute({ env, redis, queue, log }) {
         message = ""
       } = req.body || {};
 
-
-      if (!cardId || !persona || !theme) {
-        throw httpError("cardId, persona, theme are required", 400);
+      if (!cardId || !persona || !theme || !requestId) {
+        throw httpError("cardId, persona, theme, requestId are required", 400);
       }
 
-      const jobId = crypto.randomUUID();
+      // Use requestId as jobId for idempotency
+      const jobId = requestId;
+
+      // ✅ If job already exists, return existing status (idempotent)
+      const existing = await getJob(redis, env, jobId);
+      if (existing) {
+        return res.status(202).json({
+          jobId,
+          status: existing.status || "queued"
+        });
+      }
 
       // Persist job status in Redis hash
       await createQueuedJob(redis, env, {
@@ -31,30 +45,36 @@ export function createGenerateAsyncRoute({ env, redis, queue, log }) {
         theme,
         locale,
         name,
-        message: message
+        message
       });
 
       // Enqueue in BullMQ
-      // Use jobId as BullMQ jobId to prevent duplicates if client retries
-      await queue.add(
-        "generate-card",
-        { jobId },
-        {
-          jobId,
-          removeOnComplete: 1000,
-          removeOnFail: 5000
-        }
-      );
+      try {
+        await queue.add(
+          "generate-card",
+          { jobId },
+          {
+            jobId,
+            attempts: 3,
+            backoff: { type: "exponential", delay: 3000 }, // ~3s, 6s, 12s
+            removeOnComplete: 1000,
+            removeOnFail: 5000
+          }
+        );
+      } catch (err) {
+        // ✅ If a race caused the job to already exist, treat as idempotent success
+        if (!isJobExistsError(err)) throw err;
+      }
 
       log?.("info", "job.queued", { jobId, sessionId, cardId, persona, theme, locale });
 
-      return res.status(202).json({
-        jobId,
-        status: "queued"
-      });
+      return res.status(202).json({ jobId, status: "queued" });
     } catch (e) {
       const status = getStatusCode(e);
-      log?.("error", "generateAsync.error", { error: e?.message || String(e), statusCode: status });
+      log?.("error", "generateAsync.error", {
+        error: e?.message || String(e),
+        statusCode: status
+      });
       return res.status(status).json({ error: e?.message || String(e), details: e?.details });
     }
   };

@@ -1,1 +1,8 @@
 docker run --name redis -p 6379:6379 redis:7
+
+Start:
+docker start redis
+
+Recreate:
+docker rm -f clever_northcutt
+docker run --name redis -p 6379:6379 -d redis:7

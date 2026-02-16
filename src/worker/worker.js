@@ -95,14 +95,17 @@ worker.on("completed", (job, result) => {
 
 worker.on("failed", async (job, err) => {
   const jobId = job?.data?.jobId;
-  log("error", "worker.failed", { bullJobId: job?.id, jobId, error: err?.message || String(err) });
+  const attemptsMade = job?.attemptsMade ?? 0;
+  const maxAttempts = job?.opts?.attempts ?? 1;
 
-  if (jobId) {
-    await updateJobStatus(redis, env, jobId, {
-      status: "failed",
-      error: err?.message || String(err)
-    });
-  }
+  const status = attemptsMade < maxAttempts ? "retrying" : "failed";
+
+  await updateJobStatus(redis, env, jobId, {
+    status,
+    attemptsMade,
+    error: err?.message || String(err),
+    errorStack: err?.stack ? String(err.stack).slice(0, 4000) : ""
+  });
 });
 
 console.log(`Worker listening on queue "${env.QUEUE_NAME}"`);
